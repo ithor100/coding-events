@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>Create an Event</h1>
-    <form>
+    <form @submit.prevent="submit">
       <input
         v-model="event.title"
         type="text"
@@ -14,6 +14,8 @@
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
   data() {
     return {
@@ -21,6 +23,18 @@ export default {
         title: ""
       }
     };
+  },
+  methods: {
+    submit() {
+      axios
+        .post("http://localhost:3000/events", this.event)
+        .then(res => {
+          console.log("New event created", res.data);
+        })
+        .catch(error => {
+          console.error(error);
+        });
+    }
   }
 };
 </script>

@@ -45,6 +45,7 @@ describe("CreateEvent", () => {
       title: ""
     });
   });
+
   test("it should bind the event title to the user input", () => {
     const wrapper = mount(CreateEvent);
 
