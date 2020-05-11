@@ -25,15 +25,16 @@ export default {
     };
   },
   methods: {
-    submit() {
-      axios
-        .post("http://localhost:3000/events", this.event)
-        .then(res => {
-          console.log("New event created", res.data);
-        })
-        .catch(error => {
-          console.error(error);
-        });
+    submit: async function() {
+      try {
+        const res = await axios.post(
+          "http://localhost:3000/events",
+          this.event
+        );
+        console.log("New event created", res.data);
+      } catch (error) {
+        console.error(error);
+      }
     }
   }
 };
