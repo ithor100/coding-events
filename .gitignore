@@ -1,3 +1,6 @@
+# Changes to mock db to be ignored
+mock/db.minimal.json
+
 .DS_Store
 node_modules
 /dist
