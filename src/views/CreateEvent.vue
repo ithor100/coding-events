@@ -6,9 +6,9 @@
         v-model="event.title"
         type="text"
         name="title"
-        placeholder="Add a title"
+        placeholder="Add a Title"
       />
-      <input type="submit" value="Create Event" />
+      <input type="submit" value="Create" />
     </form>
   </div>
 </template>
@@ -25,13 +25,13 @@ export default {
     };
   },
   methods: {
-    submit: async function() {
+    async submit() {
       try {
         const res = await axios.post(
           "http://localhost:3000/events",
           this.event
         );
-        console.log("New event created", res.data);
+        console.log("Created new event", res.data);
       } catch (error) {
         console.error(error);
       }
